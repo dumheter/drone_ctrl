@@ -20,4 +20,4 @@ The controller packet consists of 8 bytes, one static head and one static tail b
 
 Here are a few sample packets from when the drone flew up, then down.
 
-![table](https://github.com/dumheter/drone_ctrl/blob/master/resources/table.jpg?raw=true)
+![table](https://github.com/dumheter/drone_ctrl/blob/master/resources/table.JPG?raw=true)
