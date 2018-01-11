@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\core\console.cpp" />
+    <ClCompile Include="source\core\logger.cpp" />
+    <ClCompile Include="source\core\scheduler.cpp" />
+    <ClCompile Include="source\drone\drone.cpp" />
+    <ClCompile Include="source\drone\gamepad.cpp" />
+    <ClCompile Include="source\drone\serial.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\thirdparty\SerialPort\SerialPort.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\core\console.hpp" />
+    <ClInclude Include="source\core\helpers.hpp" />
+    <ClInclude Include="source\core\logger.hpp" />
+    <ClInclude Include="source\core\platform.hpp" />
+    <ClInclude Include="source\core\scheduler.hpp" />
+    <ClInclude Include="source\drone\drone.hpp" />
+    <ClInclude Include="source\drone\gamepad.hpp" />
+    <ClInclude Include="source\drone\serial.hpp" />
+    <ClInclude Include="source\thirdparty\SerialPort\SerialPort.h" />
+    <ClInclude Include="source\thirdparty\spdlog\async_logger.h" />
+    <ClInclude Include="source\thirdparty\spdlog\common.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\async_logger_impl.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\async_log_helper.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\file_helper.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\logger_impl.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\log_msg.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\mpmc_bounded_q.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\null_mutex.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\os.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\pattern_formatter_impl.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\registry.h" />
+    <ClInclude Include="source\thirdparty\spdlog\details\spdlog_impl.h" />
+    <ClInclude Include="source\thirdparty\spdlog\fmt\bundled\format.h" />
+    <ClInclude Include="source\thirdparty\spdlog\fmt\bundled\ostream.h" />
+    <ClInclude Include="source\thirdparty\spdlog\fmt\bundled\posix.h" />
+    <ClInclude Include="source\thirdparty\spdlog\fmt\bundled\printf.h" />
+    <ClInclude Include="source\thirdparty\spdlog\fmt\bundled\time.h" />
+    <ClInclude Include="source\thirdparty\spdlog\fmt\fmt.h" />
+    <ClInclude Include="source\thirdparty\spdlog\fmt\ostr.h" />
+    <ClInclude Include="source\thirdparty\spdlog\formatter.h" />
+    <ClInclude Include="source\thirdparty\spdlog\logger.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\file_sinks.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\sinks\windebug_sink.h" />
+    <ClInclude Include="source\thirdparty\spdlog\spdlog.h" />
+    <ClInclude Include="source\thirdparty\spdlog\tweakme.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{6654051E-6D2D-42D1-8E06-F619CBD2F731}</ProjectGuid>
+    <RootNamespace>gamepadinterface</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)Output\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)source;$(ProjectDir)source/thirdparty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Xinput.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

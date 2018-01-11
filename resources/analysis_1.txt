@@ -1,0 +1,126 @@
+port 50 000, UDP
+     Here controller state exists
+     it seem to send state updates every 5 ms
+
+
+     Static bytes. 0x66 at [0] and 0x99 at [7]
+     66 XX XX XX XX XX XX 99
+     ^^                   ^^
+
+
+     initial state looks like this: (len: 8)
+     0000   66 80 80 00 80 00 80 99
+
+     MABY To stop send 6680808080040499 for 1.1 seconds
+     0110 0110 | 1000 0000 | 1000 0000 | 1000 0000 | 1000 0000 | 0000 0100 | 0000 0100 | 1001 1001 |
+
+     TO UNLOCK send 6680808080202099 for 0.6 seconds
+     0110 0110 | 1000 0000 | 1000 0000 | 1000 0000 | 1000 0000 | 0010 0000 | 0010 0000 | 1001 1001 |
+
+     Here is a sample of new values for recoding 20180102-150008.cap
+     // wireshark filter:
+     // (ip.src == 192.168.0.1 || ip.src == 192.168.0.20 ) && udp && (udp.port == 50000)
+     095.87 | 0000   66 80 80 00 80 00 80 99 // on
+     097.19 | 0000   66 80 80 80 80 00 00 99 // hourglass on
+     101.53 | 0000   66 80 80 00 80 00 80 99 // hourglass off
+     102.09 | 0000   66 80 80 80 80 00 00 99 // hourglass on
+     103.95 | 0000   66 80 80 80 80 20 20 99 // unlock
+     104.56 | 0000   66 80 80 80 80 00 00 99 // stop
+     106.98 | 0000   66 80 80 80 80 04 04 99 // quick touch on joystick
+     108.19 | 0000   66 80 80 80 80 00 00 99
+     108.95 | 0000   66 87 81 80 80 00 06 99 //joystick spin begin
+     109.00 | 0000   66 85 82 80 80 00 07 99
+     109.05 | 0000   66 80 91 80 80 00 11 99
+     109.10 | 0000   66 7d a6 80 80 00 db 99
+     109.15 | 0000   66 7a b8 80 80 00 c2 99
+     109.20 | 0000   66 77 be 80 80 00 c9 99
+     ...
+     112.88 | 0000   66 80 80 80 80 00 00 99 //joystick spin end
+     114.85 | 0000   66 83 7a 80 80 00 f9 99 //joystick forward begin
+     .. 1 duplicate
+     114.95 | 0000   66 82 7f 80 80 00 fd 99
+     115.00 | 0000   66 81 86 80 80 00 07 99
+     115.05 | 0000   66 81 92 80 80 00 13 99
+     ..
+     115.40 | 0000   66 81 bf 80 80 00 3e 99
+     .. (5) duplicate
+     115.65 | 0000   66 80 bf 80 80 00 3f 99 // maxvalue I think. after, release it to center
+     .. many duplicate
+     116.96 | 0000   66 80 80 80 80 00 00 99 //joystick forward end
+     ..
+     117.67 | 0000   66 80 7f 80 80 00 ff 99 //joystick right begin
+              0000   66 93 7e 80 80 00 ed 99
+              0000   66 bf 80 80 80 00 3f 99
+              0000   66 be 81 80 80 00 3f 99
+     118.83 | 0000   66 80 80 80 80 00 00 99 //joystick right end
+     119.64 | 0000   66 80 7a 80 80 00 fa 99 //josystick back begin
+              0000   66 7d 42 80 80 00 3f 99
+              0000   66 7f 42 80 80 00 3d 99
+              0000   66 81 42 80 80 00 c3 99
+     121.25 | 0000   66 80 80 80 80 00 00 99 //joystick back end
+     121.80 | 0000   66 7f 7e 80 80 00 01 99 //joystick left begin
+              0000   66 41 80 80 80 00 c1 99
+     123.47 | 0000   66 41 82 80 80 00 c3 99 //joystick left end
+     124.83 | 0000   66 80 80 7b 80 00 fb 99 //joystick yaw right begin
+              0000   66 80 80 77 fe 00 89 99
+              0000   66 80 80 7b fe 00 85 99 //joystick yaw right end
+     126.65 | 0000   66 80 80 8b 80 00 0b 99 //joystick yaw left begin
+              0000   66 80 80 89 65 00 ec 99
+              0000   66 80 80 8e 05 00 8b 99
+              0000   66 80 80 85 01 00 84 99
+              0000   66 80 80 84 01 00 85 99 //joystick yaw left end
+     128.52 | 0000   66 80 80 6d 80 00 ed 99 //joystick yaw up begin
+              0000   66 80 80 cf 80 00 4f 99
+              0000   66 80 80 ff 80 00 7f 99 //joystick up end
+     130.03 | 0000   66 80 80 68 80 00 e8 99 //joystick down begin
+              0000   66 80 80 09 80 00 89 99 //joystick down end
+     130.43 | 0000   66 80 80 00 80 00 80 99 // STATE hourglass on
+     ..
+     131.34 | 0000   66 80 80 80 80 00 00 99 // hourglass off ??
+     ..
+     133.66 | 0000   66 80 80 00 80 00 80 99 // control off ??
+     .. 1+17x
+
+port 7060, TCP
+     Camera feed
+
+     Our syn packet
+     TCP options:
+     * Kind: Maximum Segment size (2)
+       Length: 4
+       MSS Value: 1460
+
+     * Kind: SACK permitted (4)
+       Length: 2
+
+     * Kind: Time Stamp Option (8)
+       Length: 10
+       Timestamp value: 00 11 26 dd
+       Timestamp echo reply: 0
+
+     * Kind: No-Opertation (1)
+
+     * Kind: Window Scale (3)
+       Length: 3
+       Shift Count: 6
+       [Multiplier: 64]
+
+
+     when closing connection we finish with (len: 46)
+     6c 65 77 65 69 5f 63 6d  64 00 03 00 00 00 00 00
+     00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+     00 00 00 00 00 00 00 00  00 00 00 00 00 00
+     just before closing
+
+port 8060, TCP
+     Keepalive when not connected with camera feed?
+     Empty packet sent once per second.
+
+     not detected second time recodring
+
+port 40 000, UDP
+     Seen once in the beginig with data:
+     63 63 02 00 00 00 00
+
+     got response with protocol ICMP type 3 code 3
+     (destination unreachable)

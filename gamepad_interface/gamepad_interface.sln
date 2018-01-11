@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gamepad_interface", "gamepad_interface\gamepad_interface.vcxproj", "{6654051E-6D2D-42D1-8E06-F619CBD2F731}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6654051E-6D2D-42D1-8E06-F619CBD2F731}.Debug|x64.ActiveCfg = Debug|x64
+		{6654051E-6D2D-42D1-8E06-F619CBD2F731}.Debug|x64.Build.0 = Debug|x64
+		{6654051E-6D2D-42D1-8E06-F619CBD2F731}.Debug|x86.ActiveCfg = Debug|Win32
+		{6654051E-6D2D-42D1-8E06-F619CBD2F731}.Debug|x86.Build.0 = Debug|Win32
+		{6654051E-6D2D-42D1-8E06-F619CBD2F731}.Release|x64.ActiveCfg = Release|x64
+		{6654051E-6D2D-42D1-8E06-F619CBD2F731}.Release|x64.Build.0 = Release|x64
+		{6654051E-6D2D-42D1-8E06-F619CBD2F731}.Release|x86.ActiveCfg = Release|Win32
+		{6654051E-6D2D-42D1-8E06-F619CBD2F731}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1632AA9-1BE7-4684-BEB4-2C9624483BAB}
+	EndGlobalSection
+EndGlobal
