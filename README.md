@@ -28,4 +28,4 @@ To solve that I used a ESP8266 chip, which is a 2$ micro controller with wifi ca
 
 The overview of the programs are:
 
-`Drone <--> ESP8266 <--> computer <--> gamepad`
+`Drone <--> drone_ctrl.ino <--> gamepad_interface <--> Gamepad`
